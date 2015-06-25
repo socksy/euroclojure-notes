@@ -1,0 +1,80 @@
+¿Where is my data?
+* Talk mostly about datomic
+** entity: a collection of facts with the same entity ID <???>
+*** attributes of a map <maybe an entity?> are entities
+** declare that an attribute is related to something declaratively
+** information is immutable fact about the database at that time
+** processes separated
+*** transactor, putting things in and indexing
+*** storage service
+*** querying inside application process
+**** if everything fits in memory, then everything goes into the cache, and there's no network/DB access
+**** and LRU eviction if not
+
+* Datalog
+** EDN datastructure (so don't need to do string concats)
+** logic based (it is prolog based, after all)
+** example:
+[:find ?e
+ :where 
+ [?e :artist/country :country/ES]]
+*** entity, attribute, value available, just finding for ?e
+** tip: *Put more restrictive patterns first*
+*** narrowing things down for the later queries, so less work to do/store
+** do joins by having  the variable in value section
+[:find [?e ...]
+ :where
+ [?e :artist/country :country/ES]
+ [?e artist/type :artist.type/group]
+ [?r1 release/blah ?e] ;*THIS HERE JOINS AUTOMATICALLY* 
+..k]
+** disjunction query
+*** an (or-join) for e.g. find entity ids where listed as release or on tracks
+*** similarly can have a (not-join)
+** And many, many more...
+Composable rules, expression clauses (predicates, functions), aggregates etc etc...
+* Entity
+** (d/entity db eid)
+*** db is immutable view of DB at that time
+*** eid can be any of a numeric entity id, a lookup ref (uuid), or <something else>
+** returns a datomic EntityMap
+*** associative
+Give an artist name, will look it up
+*** lazy
+Good for not having to go over the network for things we don't care about
+**** Can ask for an attribute at any time, but not loaded into the cache until you do the lookup
+**** maybe you don't want to touch the entire entity if it's a massive map... so you can say it's a **component** of that entity
+***** <Though I didn't quite catch what that is>
+**** data being in the cache means that we really don't need to worry about this going back and forth on random data --- it's here already
+*** navigational
+Can navigate from one entity to another without pulling all of the entities at once, <perhaps a bit like a zipper?>
+**** navigate from an artist to their releases... then navigate back from releases to their artists
+*** useful for other clojure related elements
+
+* Ref types and components
+** Pull
+***  pull: attribute specification
+[:artist/name :artist/country]
+;; {:artist/name "Foo Bar"
+;;  :artist/country {:db/id 1923992}
+
+*** but we can pull exactly the name of the country inside the attribute
+[:artist/name
+ {:artist/country [:country/name]}]
+;; <oops not typing quick enough>
+*** pull reverse navigation
+** Combining pull and query
+*** so say we have all the names of groups from Spain
+We'd have done a :where [?e :artist/country :country/ES] [?e :artist/type :artist.type/group] [?e :artist/name ?n]
+Now we can do a pull. <still not typing fast enough to get the cool new pull syntax
+*** before pull, we have this post processing in clojure
+*** now we can do everything in a more expressive query
+<This is an excellent way to write even less code that you previously had in your datomic app. In an unending call to get everything in EDN>
+
+* Some questions
+** If everything is local, you don't have to worry about n+1 queries?
+*** Yes.
+** And if that data is sparse across the networks?
+*** Well in that case it's something you have to think about anyway with large DB, but it's largely mitigated by the design. No matter the size, there's still a lot less chatter
+** Plans for a query optimiser?
+*** People ask for it. There's some kinda library to reduce. Nothing like that at datomic yet, but it's on the radar.

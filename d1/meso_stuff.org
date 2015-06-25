@@ -1,0 +1,84 @@
+Something about scaling
+* start
+** you start with something a lot simpler, only web service -> DB
+** things increase in complexity, getting logs around
+Boom, money runs out, need monetization
+** Now infrastructure grows
+*** more testing machines, metrics
+*** you introduce a command and control solution
+*** puppet!
+* step back
+** doing things the right way
+*** CI, devops, etc
+** But utilization of services is pretty low
+** adding new stuff makes things harder
+*** which git repo to use
+*** which is your puppet repo?
+*** which machines are they going to go on?
+** But look from a service POV and it makes more sense
+*** can split between all of the allocations for say Jenkins and ops on the same machine
+*** but we'd like better utilization across different software
+** Possible alternatives in to this
+*** containers
+*** PaaS
+** But hey, this isn't your job. Your job is the product
+* Mesos can help you
+** does this architecture of masters, slaves, and schedulers
+[[file:mesos_arch.jpg]]
+** masters
+*** export HTTP/Protobuf API
+*** web ui
+*** main entry-point for framework
+*** horizontably scalable
+** slaves
+*** expose their resources
+**** eg. CPU, RAM, IPs, Volumes, Labels, etc
+** Mesos frameworks
+*** schedulers
+**** Expose services
+*** executors
+* How to build a framework with mesomatic
+** Why?
+Library is something to do before frameworks. Distribute workload from within your app.
+Good start to an aaS
+** deets
+protobuf to data
+** executor facade
+*** protocol has bunch of messages that they can receive
+*** can send message
+*** update
+*** [ME] what is the purpose of it? It does the main communication?
+**** seems to let you do a bunch of things with sending it details about the world, and can send a bunch of commands such as starting, stopping etc
+** Core Async facades
+*** can have a very barebones scheduler using coreasync
+** allocate implementation
+only one for now, naive allocator
+*** Lets you move things on different machines
+
+** So an example as a (distributed) cron job
+*** simple state to make sure things aren't done multiple times
+*** ticking with cronj, sends message every tick
+*** same structure as before [let's check slides later]
+*** handling resource offers
+*** handling ticks
+**** can find suitable host to launch task on using mesomatic, and then launch, and it'll find it
+** More why
+*** Library first approach is a clojure specific thing
+** Handle topology changes
+*** making use of  clojure's existing properties, using atom and diffs between them
+** so another, as atom-backed configuration
+*** watch for new state and old state
+**** So we do a converge function, decides on side-effects, and performs them.
+**** Decisions can be done as diff. What keys have changed, then map to a different function
+*** Making clear decisions
+**** nice use of core.match to do the differences, [I think]
+* Conclusion
+** core.async is good for modelling the flow of incoming messages
+** core.match brings clarity for the decisions
+** woo immutability
+** Mesos helps with not dealing with the allocation process
+*** easy to ensure your expected topology exists through the cluster
+*** containers help with isolation
+** Less ops work
+** Problems with C++ stuff
+** checkout github.com/pyr/unilog
