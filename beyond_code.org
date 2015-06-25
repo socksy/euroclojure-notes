@@ -1,0 +1,33 @@
+* Beyond code
+
+** Code Complexity
+It's not just a one dimensional attribute. We can represent complexity with increasing circles.
+But there's also the frequency of code changes. This can be represented as different colours.
+** We can use a tool to identify where code is complex and not.
+So visually we can see in the code where is complex, and where changes often.
+** Your code as a crime scene was a previous book written
+*** But decided to write it in clojure because it's fun. And fun is important!
+** Evolutionary metrics
+So we have metrics of the code with analysis using
+*** parsing => aggregation -> analysis => output (-> csv)
+<Where fat arrow represents coming from multiple sets being processed before the next step>
+** So doing it in Clojure he decided to use instaparser.
+Pros: It's as easy as regex. Cons: It's as easy as regex.
+
+But really, it can be represented as a simple CFG each using various regex syntax.
+
+** But parsing large datasets is ridiculously slow.
+*** Very memory hungry
+*** so instead of parsing everything -> just lazily parse little bits at a time. A form of tokenization/chunking.
+*** This is very effective. Do chunking.
+** One interesting thing to look at is the trueism "Code doesn't lie"
+*** which is nice, but isn't necessarily the entire truth
+*** An example of which is temporal coupling.
+Change two files in a commit, change something else, change the original two.
+**** So like traditional ideas of coupling. Physcial coupling when it points directly at something. Logical coupling when something relies on something else from a point in the program logic, if not explicit.
+**** Temporal coupling can see a few examples of this being detected. <How come? I don't think temporal coupling is explained well enough yet>
+** Analysing architectures
+*** Microservices
+**** idea is that we have a bunch of small services completely indie of each other, and a larger application using these libraries individually.
+**** but in reality, there'll be some coupling between some client libs, shared db utils, communication libs, service templates (!)
+** Code churn 
