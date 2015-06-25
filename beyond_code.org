@@ -31,3 +31,5 @@ Change two files in a commit, change something else, change the original two.
 **** idea is that we have a bunch of small services completely indie of each other, and a larger application using these libraries individually.
 **** but in reality, there'll be some coupling between some client libs, shared db utils, communication libs, service templates (!)
 ** Code churn 
+How much code changes over time.
+*** So this is a possible output from the analysis
