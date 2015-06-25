@@ -1,0 +1,27 @@
+Immutable Structures: what lies between
+
+* Speed against immutability
+** immutable data structures are like baby knives for a master chef
+** part of the concept is simply sharing data
+** in a list, this is obvious, but in a map and vector less so
+* Maps
+** Best way to present is in trees
+** Red-Black trees
+Quick reminder:
+- every node is coloured
+- root is black
+- some other invariants
+
+** tries
+*** a FSM, symbols nodes, edges, next
+**** Implementation:
+- lookup table
+- but with lots of null filled arrays each pointing at the next
+*** Good time complexity, bad space complexity
+** combine BST with a trie
+*** no null nodes
+*** still fast
+
+** fast and efficient trie with bagwell
+*** bitmaps to know whether we have something
+*** if we have a 1, then there's another array in which it is, which can be dynamically allocated
