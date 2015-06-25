@@ -1,0 +1,10 @@
+* Clojure on android
+** Why?
+Because we can. And it's better than Java.
+*** But what about clojurescript + react native/phonegap?
+This has lots of layers. Android -> Javascript -> React -> Clojurescript -> Reagent/whatever
+*** Reasons
+**** Closer to native
+**** Better tooling with cider etc
+**** Can always use interop for things we haven't wrapped yet.
+**** Android is not javascript --- we have multiple threads!
