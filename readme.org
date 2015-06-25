@@ -1,0 +1,5 @@
+* Notes from Euroclojure
+So I don't know how to use org mode, nor do I understand half the talks going on, and the stuff I am writing is almost entirely wrong. Feel free to give pull requests to fix everything.)
+
+Also, I've notice that I'm using org mode entirely wrong to get GitHub to render it properly. Everything seems to be a header. But hey, it looks a lot prettier in spacemacs!
+[[file:readme.png]]
