@@ -1,5 +1,6 @@
 * Beyond code
 
+<Missed the very start, possibly some important context not here>
 ** Code Complexity
 It's not just a one dimensional attribute. We can represent complexity with increasing circles.
 But there's also the frequency of code changes. This can be represented as different colours.
@@ -28,8 +29,33 @@ Change two files in a commit, change something else, change the original two.
 **** Temporal coupling can see a few examples of this being detected. <How come? I don't think temporal coupling is explained well enough yet>
 ** Analysing architectures
 *** Microservices
-**** idea is that we have a bunch of small services completely indie of each other, and a larger application using these libraries individually.
+**** idea is that we have a bunch of small services completely independent of each other, and a larger application using these libraries individually.
 **** but in reality, there'll be some coupling between some client libs, shared db utils, communication libs, service templates (!)
 ** Code churn 
 How much code changes over time.
 *** So this is a possible output from the analysis
+*** And we can analyse it using CSV
+** Incanter for code viz
+*** you can see code churn over time
+This is basically just time series plotting, it seems.
+** But this is all very well, and simple to see, but it's really boring.
+Time to use processing to make programming fun again. Fuck all the best practices!
+*** So started to use processing to investigate stuff
+But soon started to find it's very difficult to maintain this code.
+*** Clojure to the rescue!
+Quil.
+*** Quil
+**** One thing that we now have, is fun mode.
+This is turns the programming model much more functional — so functions return a new world, etc.
+However, there's still a lot of code
+*** The more programmers on one piece of code, the more problems with it.
+Maybe it's because the more parallel programming on a piece of code, the worst the bugs.
+**** We can use Quil to analyse this exact problem. We can check how much contributors vs number of bugs.
+One interesting view is the clojure fractal figures. A library with a big amount of code written by one person with a lots of small patches by other people is generally regarded as better safe.
+But if you see lots of colours in your fractral [seems to be similar to grand-perspective/baobab style fractrals]
+
+
+* Adam Tornhill
+recommends zoochurn, and code maat.
+@adamtornhill
+[[the-living-code.com]]
