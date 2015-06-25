@@ -8,3 +8,50 @@ This has lots of layers. Android -> Javascript -> React -> Clojurescript -> Reag
 **** Better tooling with cider etc
 **** Can always use interop for things we haven't wrapped yet.
 **** Android is not javascript --- we have multiple threads!
+*** Reasons against (and for cljs)
+****  cljs will have faster startup time
+**** easier for js devs to jump in
+**** more libraries
+** Goals of clojure-android
+Let Android devs write good Clojure apps - and vice versa.
+** Build system
+lein-droid, whilst a plugin for Leiningen, is a full build system.
+*** Quite complex. Something like 2000 loc
+Can get help using `lein droid help` etc.
+Create new project.
+*** boot-droid coming soon!
+Quite far away, but they have a logo alreaady.
+** neko
+Toolkit library, does some wrapping around some native stuff.
+Particularly so we can use it to generate the Android XML for UI.
+*** So EDN, hiccup style syntax.
+Here, look at this tweet: https://twitter.com/kachayev/status/614079891777191941 <thanks @kachayev>
+*** Actually more powerful than the XML, lets us use some DRY stuff
+Select various things, have variables, all sorts of good stuff.
+**  SQLite on Android
+Normally this means writing SQL to create, query, and then use `Cursor` to access the data
+** Obviously the clojure way is far better. <no editorializing here>
+All the above, but in clojure syntax. Just DB driver stuff. But SQLite is is nice and lightweight, only one dependency
+** Project skummet
+An optimizing Clojure compiler!
+*** Drop in replacement for the Clojure compiler, which makes things fast!
+All marketing promises are great.
+*** But seriously, what makes Clojure compiling slow is the time initializing vars.
+Var pr_str = (Var)RT.var("clojure.core", "pr-str");
+...
+((IFN))pr_str.getRawRoot etc
+
+Not so many lines, but these are seriously slow.
+*** Skummet replaces these vars with class fields
+In practice, this is good enough, and radically reduces the speed of creating all of these Var objects
+*** Check out [[http://clojure-android.info/skummet/]] there's a ton of cool features actually
+** Some examples
+*** 4clojure is on android
+*** Nightweb
+** Conclusion
+*** More people are needed!
+*** Please come to the freenode channel, `#clojure-android`
+
+** Live coding
+He managed to build something into the simulator live without anything breaking! Mad props.
+"Look, see, where's your react now"
