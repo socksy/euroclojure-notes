@@ -18,7 +18,7 @@ When running benchmarks, it's really important to disable this.
 
 :jvm-opts ^:replace ["-server"] 
 
-Lots of benchmarks not doing this. @tcrayford went ahead and sent a bunch of pull requests to projects to do it :)
+Lots of benchmarks not doing this. @t_crayford went ahead and sent a bunch of pull requests to projects to do it :)
 ** inlining
 Can be great. Can delete entire function calls.
 *** This leads to an interesting observation on the JVM. Lots of small functions is much better for inlining
@@ -45,3 +45,6 @@ For things like small vectors, you define them as a tuple type, and you can get 
 *** Onyx as an example
 6.4% of the code usage is looking up known keys in a map.
 **** One use of an (or) to cache a value instead of having to lookup - defeated by accidentally putting (:or str-var), a useless call looking up a keyword in a string, before actually returning the value
+** Questions
+*** Tried looping through all the performance flags, to find the best?
+**** Yes. It takes around 6 hours. There's a lot.
