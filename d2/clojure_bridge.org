@@ -23,5 +23,41 @@ But there's lots of companies not covered. If you're in one of those other count
 ** Comparisons
 *** Rails bridge, rails girls, django girls. 
 RailsBridge is more of a US based one.
-
-
+** Why outreach?
+*** FP communities especially are bad for beginners. Either too condescending, or too obtuse.
+** Hacker School rules
+*** no feigned surprise
+"I can't believe you don't know what [x] is!"
+*** no 'well actually's
+Just an excuse to show off their knowledge.
+*** no back-seat driving
+Let people work out things for their own. It's the way they learn.
+*** no subtle -isms
+"You code well for a girl", etc.
+** Odd one out
+People showing their unknown biases, with e.g. "Clojure Guys". Assumed you belong to admin staff. Or just attributing something about a single person to the entire group of people that they belong to.
+** Comfort levels
+An example was with a running group, when a leader took them into an unlit, possibly dangerous area, but the leader didn't realise that - he ran it all the time.
+But comfort level is an individual thing.
+** Growing a community
+It's easy to think that people that share one thing, e.g. interest in clojure, will share similar views on lots of other things.
+*** Can use a code of conduct
+But it's good to consult an outside group
+** Teaching aims
+*** Lots of these involve creating a website
+**** but this can lead to a lot of times just grappling with the framework, and can leave you thinking you don't really grok the system
+*** Clojure though, is modern, minimal keywords and syntax.
+Arguably, FP is easier to learn than OOP from beginning too.
+It's also pretty portable, useful for a workshop.
+**** The REPL
+*** Should it be a first language though?
+**** Not designed as a beginner language.
+One example is the massive stack trace when you get something wrong.
+**** Can always get them into coding, and switch them into clojure when they obviously realise it's the best language < ;-) >
+** Contribute
+Particularly good ideas: organize, volunteer, sponsor, contribute (to the curriculum on GH)
+** Boot strapping diversity
+Bit of a chicken and egg situation. Want to hire women, but there are no women clojure programmers!
+*** Recruit women from other languages!
+*** Also recruit former students to teach
+** 
