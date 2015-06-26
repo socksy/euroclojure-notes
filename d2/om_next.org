@@ -36,3 +36,19 @@ Such as with backend services
 
 E.g. with mobile. Too many requests are bad, so one endpoint gets overloaded in a not so great REST way. And what if Apple release a watch or something?
 *** Composition
+**** Interpretation
+***** UI should not be involved in the problem of where data comes from
+"That's a nice one" looking at photo album means something completely different than when talking about a lettuce bin.
+*** GraphQL
+Not new, in use at Facebook for quite a while.
+*** Relay exposes GraphQL to clients
+**** Components annotated with composable query  fragments
+The idea of compositional fragments that you can put together
+**** Remote sync
+*** Even though Facebook are such a massive website, they still have the one monolithic design.
+Netflix also have this. But originally, they were using REST every. They just dumped 90% of their network code by dropping REST
+**** JSONGraph, simple data oriented api to describe demand (recursive)
+**** Falcor, routes data structure keys to microservices (router works on client)
+returns thing in the exact same shape as the client requested.
+Identical to GraphQL concept.
+**** Datomic Pull Syntax
