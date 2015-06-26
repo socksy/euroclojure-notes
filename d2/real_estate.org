@@ -2,5 +2,15 @@
 ** rightmove, the UK real estate portal
 Zoopla comes on the stage, fun duopoly. Not good for estate agent (real estate brokers) because they have to pay to go on these sites.
 Estate agents just want something for a voice <this sounds a bit like marketing bollocks>.
-** 
-
+**  Requirements
+Consumer portal
+Data Processing pipeline
+Estate Agents Portal
+Internal support tools
+** So how does Clojure fit in?
+*** Huge product build, non-negotiable deadline
+*** So Clojure is the solution?
+**** Data transformation. The project is just data moving around.
+**** Conservative choice
+Obviously.
+**** Community cohesion
