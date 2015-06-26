@@ -1,0 +1,38 @@
+@dnolen
+* Om Next
+But don't worry, there should be takeaways for those of us not using Om
+** Om story so far
+Around 16 months since first release, many user, large projects.
+*** Mainly to demonstrate that there's a more idiomatic UI approach.
+*** Demonstrate to JS that there's a better way to do it.
+** React is great
+It's immutable friendly. No stateful observations required, due to the diffing strategy.
+(also browser quirks)
+*** React is heading in the right direction.
+They have Facebook steamrolling everything, in a way other libraries don't. See React Native - has a shit tonne of Objective C. I don't want to write this code.
+** Om principles
+*** Single store
+*** Async rendering loop.
+Biggest problem in most UI problems is that people flush too soon. A lot of the time it is not needed.
+*** Support jumping to any point in time - render from root should always work
+Mainly due to the diffing strategy in React
+** Om's issues
+*** Function closures at odds with React component design
+Mistakenly, Om uses functions to represent components. This leads to closures, which as just said, is against how React represents the components
+*** Cursors are too leaky an abstraction
+Good idea 6 months ago. A lot of the benefits from zippers and lenses. But really just a stop gap to build modular programs
+*** Not Pluggable enough
+*** Missing pieces
+**** Seamless sync
+Getting the initial data
+**** Getting changes
+Lots of ad hoc solutions, but no standard way.
+** Describe the problem
+Nothing to with Om, nothing to do React, it's to do with all clients that use external resources.
+*** HTML was not designed to deal with UI.
+It's hypertext. But now lots of apps exist that bear very little resemblance
+*** A  good idea for the web, REST, is trying to be used in lots of other situations when it shouldn't
+Such as with backend services
+
+E.g. with mobile. Too many requests are bad, so one endpoint gets overloaded in a not so great REST way. And what if Apple release a watch or something?
+*** Composition
