@@ -14,3 +14,17 @@ Internal support tools
 **** Conservative choice
 Obviously.
 **** Community cohesion
+Good ecosystem, lots of libraries, people wanting to work together
+** The stack
+*** Front-end
+For the consumer portal
+**** Ring, Compojure, Friend, Liberator, Bidi
+**** Elastic
+*** Back-end
+**** SQS, S3, Postgres
+** Core Async channels for moving information between different functions
+Each function does a small thing that does what they say they do, with a namespace just for core.async stuff.
+This can get you quite a long way.
+** Pipeline
+*** Validate -> Process -> Golden Store, Publish -> Front end store
+All using prismatic/schema, a fantastic library
