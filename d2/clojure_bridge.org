@@ -84,3 +84,8 @@ More clojure programmers -> More clojure in production -> More Clojure jobs -> M
 Still would encourage you to make it approachable for minority groups
 *** Statement, not question. A selfish reason, more diversity makes better teams
 **** Yes, for example when various services designed with well off white men actually don't serve people as well.
+*** Women get paid less than men. Do you think this is not as much as an issue? Shouldn't we concentrate on this more?
+<Didn't catch the answer to this question, apologies>
+*** How do you get more experience after, especially if you're not coming from uni? (and other "unofficial" backgrounds)
+Mentors, internships, etc
+**** Clojure Bridge events are one time events... but we do emphasize the importance in continued learning. Giving info about clojure dojo groups, etc.
