@@ -1,0 +1,27 @@
+* Clojure Bridge
+** What is clojure bridge?
+Coding workshop for women, run by volunteers, to introduce people to clojure.
+*** The hope is that they continue after the workshop, continuing to be part of the community and creating things.
+** Diversity
+Diversity as a concept - usually concentrate on women, because they're the largest under represented group.
+But can include ethnic minorities, LGBTQIA, disability, class/economic background
+*** Will refer mostly to women, but most is applicable to other groups
+** Clojurebridge edinburgh
+<woo Edinburgh <3 >
+Funding from github, scott logic, ncr, scotland is etc.
+*** Ugly location, but nice view of the castle.
+*** Why?
+Attended an event of clojure launchpad, but she was (almost) the only woman there
+People are missing out!
+** Based on RailsBridge
+1 day workshops
+Bridge gaps between communities, between people who feel excluded, those that live and breathe it.
+** ClojureBridge spreading around the world slowly
+<also Berlin, hint hint>
+UK, Germany, Finland, Sweden.
+But there's lots of companies not covered. If you're in one of those other countries, consider running a workshop!
+** Comparisons
+*** Rails bridge, rails girls, django girls. 
+RailsBridge is more of a US based one.
+
+
