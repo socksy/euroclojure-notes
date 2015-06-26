@@ -60,4 +60,22 @@ Particularly good ideas: organize, volunteer, sponsor, contribute (to the curric
 Bit of a chicken and egg situation. Want to hire women, but there are no women clojure programmers!
 *** Recruit women from other languages!
 *** Also recruit former students to teach
-** 
+** Teacher trainings
+Social comfort, teaching people how to approach the goals mentioned above. How to engage with people, and how to keep people in their comfort areas etc.
+*** side effect, gives men an insight of diversity
+
+** Lessons learned
+*** Curriculum used to be far too long for a day. Difficulty setting things up too.
+Now using the Quil library for drawing.
+** Impact
+*** Even if they don't go into clojure, the mind virus of FP has infected the attendees.
+*** More diversity in the community
+*** Virtuous circle
+More clojure programmers -> More clojure in production -> More Clojure jobs -> More learners (recur)
+** Questions
+*** Why should we encourage women to join?
+<really?>
+**** Diversity in backgrounds, life experiences. White men dominate the programming community to a long shot.
+<applause after the aghast look>
+*** Consider making the curriculum have advanced + intermediate parts too?
+**** Yes. In progress. It's on github. Contribute.
