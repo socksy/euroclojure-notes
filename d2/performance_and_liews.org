@@ -1,0 +1,47 @@
+* Performance and lies
+** caveat: this is only really true about the current state of the world. Current version of JVM, current version of Clojure etc etc
+** Have to benchmark
+*** There can be problems with benchmarks, due to problems with the JIT
+It changes what paths are predicted, and so the order you run the benchmarks can affect dramatically the benchmark performances.
+However, this is somewhat easy to solve - just reboot the JVM for each test. Only a minor issue compared to some of the big ones in benchmarking.
+** Optimisation flags for the JVM
+There's a lot. There's a blog post detailing around 800 or so.
+*** obviously the HeapSize. But everyone knows that one
+Can get you 15% improvements
+*** AgressiveOpts
+A meta flag that turns on a bunch of other opt. flags. Can get you around 6.4% improvement <in what metric?>
+*** "UseCompressedOops"
+But actually, this is on by default
+*** TieredStopAtLevel
+is on by default with lein. It gets you faster start up times, but reduces overall performance dramatically.
+When running benchmarks, it's really important to disable this.
+
+:jvm-opts ^:replace ["-server"] 
+
+Lots of benchmarks not doing this. @tcrayford went ahead and sent a bunch of pull requests to projects to do it :)
+** inlining
+Can be great. Can delete entire function calls.
+*** This leads to an interesting observation on the JVM. Lots of small functions is much better for inlining
+**** *If you extract functions from bigger functions you can improve performance dramatically*
+*** MaxInlineLevel=9 by default. So don't go too deep in the nested function calls.
+** no.disassemble
+** Profilers
+Biggest lie of alls
+*** But first: safe points
+Points where the JVM knows the memory usage at one point.
+**** They are not at synchronous times, can happen at bad times
+**** But you want them. They let you do the GC well.
+**** But they can happen at the end of loops, so on, so forth
+*** Now profilers can only see the stack at the point of safe points
+This is not necessarily accurate, can miss things, and is likely to be unrepresantable points
+*** There's a new one, flightrecorder, for the new JVM version
+**** will need to enable more flags
+** Maps are cheap
+Supposed to be fine to do, etc, can throw them around.
+However, when there's lots of them, they can start to slow down
+*** An alternative is defrecord. This can be faster for some types of fields, and others it will just represent as a map anyway.
+*** deftype
+For things like small vectors, you define them as a tuple type, and you can get a speed up over a small vector.
+*** Onyx as an example
+6.4% of the code usage is looking up known keys in a map.
+**** One use of an (or) to cache a value instead of having to lookup - defeated by accidentally putting (:or str-var), a useless call looking up a keyword in a string, before actually returning the value
