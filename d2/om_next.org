@@ -74,10 +74,32 @@ Cursors only exist to delivery dependency tracking
 The queries give us all the information we need
 **** So now we don't care about getting the values out with cursors
 *** Other changes
-**** Compoentns can be used without render loop
+**** Components can be used without render loop
 **** Integrating custom store much simpler
 Stops saying what the store should look like.
 **** Leveraging Datomic superpowers becomes very straight forward
 ***** Entity <-> UI Component
 Datomic has idea of time, so we can see all the changed datums
 *** <Live coding>
+**** no instantiating, all static methods
+**** As the client, we don't need to add anything on the endpoint. We just say we want xyz
+*** TODOS
+**** Query updating
+**** Ring/Pedestal Datomic middleware
+**** Briding Legacy and Next components
+*** So, done, right?
+No, of course not ;)
+**** Excellent ideas from clojurescript, and enjoyed talking about it with us all. So here's some cool examples.
+But examples inside of examples, because we're lisp :D
+*** ClojureScript bigger than the web
+**** So here's a GSOC to
+***** Process CommonJS, AMD and ES 2015 modules
+Why? This is clojurescript!
+But React isn't clojurescript. It's just JS
+***** JDK 8 Nashorn gives us Babel integration
+React doesn't use JSX anymore, it uses Babel to do this
+<lookup babel>
+****** Now React can be used for many typcial web stuff
+***** Our path to building React Native using any ClojureScript tool
+***** A shoutout to Maria  Neise
+*** Ambly
