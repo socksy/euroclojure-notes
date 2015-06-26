@@ -1,0 +1,6 @@
+* Real estate Clojure
+** rightmove, the UK real estate portal
+Zoopla comes on the stage, fun duopoly. Not good for estate agent (real estate brokers) because they have to pay to go on these sites.
+Estate agents just want something for a voice <this sounds a bit like marketing bollocks>.
+** 
+
