@@ -116,3 +116,13 @@ could even do it over wifi!
 
 ** Clojurescript in Clojurescript
 *** Why? Is it for cool points?
+**** Well actually, it's good to have a bunch of clojurescript applications without the JVM dependency
+RPi, Node.JS; Electron (prev. Atom Shell); ship updates to deployed apps (iOS); online demos
+*** Demonstration:
+"not finished, but still awesome"
+Cool thing is that CLJS actually depends on itself.
+**** Loading the same analyzers that the JVM loads
+Awesome example of complex CLJ code without porting to CLJS just working.
+**** Eval in CLJS!
+** Thanks to:
+*** Jonathan Boston, Shaun LeBron, Nicola Mometto, Andrew Mcveigh <someone else, sorry! I didn't type fast enough>
