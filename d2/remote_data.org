@@ -20,5 +20,23 @@ same idea as the go macro. Sequential code -> State Machine -> Par. lib
 Uses the idea of building and interpreting an AST
 ** So Muse
 *** Remote is about latency. Latency is about waiting. Waiting is about doing nothing. (Pretty simple to do)
-*** Using the waiting abstraction in the sense of core.async <I think that's what he said??> is the wrong way to deal with waiting for an unknown result
+**** Using the waiting abstraction in the sense of core.async  is the wrong way to deal with waiting for an unknown result
 *** Aside: Remote data is data you have to wait for. So Riak is remote data, regardless of it's location
+So does waiting e.g. for an fmap function to return. You have to wait, so we should treat it as the same <not sure i understand why this is the case? Surely blocking matters?>
+*** So say I have a record with a nested reference to another data structure
+We can get this with an fmap to the data.
+**** New function: flat-map
+Similar to fmap, but returns with an intent to get more data later
+Run will
+*** Another situation, calculate common friends between different users
+Get friends of user A, friends of user b, then use (fmap intersection)
+**** But there's no reason to wait to get the friends of A before getting the friends of B... but the computer doesn't know this.
+**** similar example: friends of friends
+ We can send all requests simultaneously still
+*** There's also the fetch multi function
+*** Separation of concerns
+Muse is *what* I want to do. Core.async is *how*
+*** Restrictions
+**** Data fetches should be side effect free. Especially, not relying on the order.
+**** You must have enough memory
+**** Using core.async to run the fetches concurrently
