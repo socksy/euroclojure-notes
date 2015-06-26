@@ -16,6 +16,7 @@ Obviously.
 **** Community cohesion
 Good ecosystem, lots of libraries, people wanting to work together
 ** The stack
+[[https://twitter.com/mohitthatte/status/614371729356529664]]
 *** Front-end
 For the consumer portal
 **** Ring, Compojure, Friend, Liberator, Bidi
@@ -28,3 +29,16 @@ This can get you quite a long way.
 ** Pipeline
 *** Validate -> Process -> Golden Store, Publish -> Front end store
 All using prismatic/schema, a fantastic library
+*** Swagger metosin/compjure-api
+**  Launch happens — more stuff comes up to do
+
+** Lessons
+*** Keep It Simple Stupid
+Do we really need instaparser here, or can we just use a regex/csv file?
+We love core.async, but what if we don't want to use it.
+*** Mainting a shared ownership
+Stuff like retrospectives, other scrum stuff
+* OnTheMarket.com
+<check it out. It's pretty nice>
+** "Website is all there, it's all kind of working. No wait, it is working!"
+** Estate agents plaster the stickers all over their windows
