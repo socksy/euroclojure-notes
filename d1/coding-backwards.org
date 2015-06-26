@@ -1,0 +1,14 @@
+* Interesting to code backwards
+* New language µKanren
+<presented in comic sans - which from my experience isa true sign that this is academic cutting edge>
+Lisp like.
+
+- Features:
+** State
+A set of relations, and a variable counter
+** Streams
+A lazy list
+** Goal
+Applied to a state and returns a stream of satisfying states.
+
+<don't understand anything else>
