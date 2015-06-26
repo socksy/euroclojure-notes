@@ -1,0 +1,24 @@
+* Accessing Remote data
+
+** Solution
+*** Example simple fetch
+Fetching users from a service, fetch-post, fetch-id
+Each time hitting the DB/etc to run query.
+**** Concise, easy to read, clean
+**** But very slow, with duplicate requests, fetch same User multiple times, difficult to batch requests
+*** Core.async and dedup
+**** More lines of code
+**** Optimization... but with cost of unnecessary complexity
+**** Hard to dig through the code
+**** Not concise.
+**** But also not a clojure problem
+*** Other known solutions to the problem?
+**** "There is no Fork" paper, which introduces Haxl. Facebook's open source lib
+**** Stitch, a scala library, twitter, not open source
+same idea as the go macro. Sequential code -> State Machine -> Par. lib
+**** Clojure solution: Muse library. Open source, core.async
+Uses the idea of building and interpreting an AST
+** So Muse
+*** Remote is about latency. Latency is about waiting. Waiting is about doing nothing. (Pretty simple to do)
+*** Using the waiting abstraction in the sense of core.async <I think that's what he said??> is the wrong way to deal with waiting for an unknown result
+*** Aside: Remote data is data you have to wait for. So Riak is remote data, regardless of it's location
