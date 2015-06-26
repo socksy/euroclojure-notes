@@ -40,3 +40,7 @@ Muse is *what* I want to do. Core.async is *how*
 **** Data fetches should be side effect free. Especially, not relying on the order.
 **** You must have enough memory
 **** Using core.async to run the fetches concurrently
+*** Future plans
+Better errors and debugging.
+Applicative functors interface <huh>
+Get rid of fmap & flat-map.
