@@ -103,3 +103,16 @@ React doesn't use JSX anymore, it uses Babel to do this
 ***** Our path to building React Native using any ClojureScript tool
 ***** A shoutout to Maria  Neise
 *** Ambly
+GCDWebServer based Clojurescript compiler integration
+**** Compile sync over WebDAV
+**** Deliver iOS REPL
+**** mDNS for discovery
+
+**** (aside WebGL to iOS GL using JS), as more live coding
+
+**** actually, better than react native, since we can hotload code!
+could even do it over wifi!
+<applause here>
+
+** Clojurescript in Clojurescript
+*** Why? Is it for cool points?
