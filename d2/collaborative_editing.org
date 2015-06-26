@@ -1,0 +1,48 @@
+* Collaborative Editing
+** Distributed systems is a <solved?> problem
+*** Keep state elsewhere
+** Realtime collaboration as a product
+Google docs, wikidocs, hackpad, google wave.
+*** These products have tended to be
+** Operational Transformation 101
+*** Server has representation of text, user has representation of text
+The user edits it, whilst another user edits the bit on the server. Depending on the merge, this can end disastrously, or not
+*** matter of mitigating this
+** The traditional set up of having servers behind a load balancer talking a DB was a necessity of the situation we had. But it raises some questions with realtime collaboration
+*** Where do we send requests to?
+*** How do web nodes talk to each other?
+*** What delivery guarantees are needed?
+*** What happens when web nodes come up and down?
+*** What ordering guarantees are needed?
+** First tool considered is Vert.x
+A toolkit to provide reactive programming on the JVM allowing a much higher throughput
+*** SockJS
+*** Clustering
+*** Distributing Event Bus
+**** But this leads to some maybes, which is not good.
+** Actors
+*** If you come from Scala, you might think Actors are a good solution here.
+And you'd be mostly right.
+*** In clojure, we can go for Akka or Pulsar.
+Though Akka is quite awkward to use in Clojure
+Clustering in Pulsar. <not good, I think?>
+**** Other thing about these is that they're JVM only
+**** And Fairness.
+***** If you have a single user/group of users doing a lot of changes, then they can hog the pipe, preventing the others from getting in.
+The goal is to improve things for the average user, so fairness is a required part.
+** So the options:
+[[https://twitter.com/alesroubicek/status/614430205256536064]]
+** Multiplexer
+<I'm a bit lost, tbh> 
+** How do they talk to each other?
+*** Aleph cluster
+Client and server network programming, built on netty
+** Aleph clutser + multiplexer
+*** Distributed, end-to-end core.asaync channels
+*** Message delivery and ordering guarantees
+*** Fault tolerance
+*** Fairness
+*** Backpressure
+<What is this?>
+** CRDTs
+<????????>
