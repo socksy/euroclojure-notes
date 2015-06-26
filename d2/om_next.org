@@ -126,3 +126,18 @@ Awesome example of complex CLJ code without porting to CLJS just working.
 **** Eval in CLJS!
 ** Thanks to:
 *** Jonathan Boston, Shaun LeBron, Nicola Mometto, Andrew Mcveigh <someone else, sorry! I didn't type fast enough>
+** Questions
+*** Errrrr
+<laughter>
+*** Is this CLJS 1.0?
+**** Actually, gets quite confusing with different clojurescript vs clojure numbers, so we're going to start adopting the CLJ version name.
+*** Ambly repo?
+**** Look in the Om repo.
+*** How are you going to handle updates in Om next?
+**** The old version had transact, and it's going to be pretty similar.
+Update this component with this date, then just call transact
+*** CLJS file that includes itself... how does that terminate?
+**** Simpler than it sounds. As soon as it sees it as a CLJS import it just calls the macros in JVM CLJ.
+<possibly misunderstood this point>
+*** Did you get much sleep?
+**** Enough.
