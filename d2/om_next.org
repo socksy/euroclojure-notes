@@ -52,3 +52,32 @@ Netflix also have this. But originally, they were using REST every. They just du
 returns thing in the exact same shape as the client requested.
 Identical to GraphQL concept.
 **** Datomic Pull Syntax
+***** Get exactly what you need declaratively
+***** Recursive `select-keys`
+***** Generic simple data description.
+***** Looks like this:
+[:person/first-name
+ :person/last-name
+ :person/address]
+and this gets everything with implicit joins, and I can specify exactly what I want from the address, for example.
+*** Synthesis
+<possibly a little hard to understand>
+(defui ContactList ; no arguments
+**** say something about this, that someone knows what the query looks like
+**** don't need to give it the logic, just that someone has the contact
+**** then just a JS render part
+*** Give each component a Datomic Pull Syntax fragment (Relay)
+Cursors disappear!
+Though a bit more conservative than relay
+*** No cursors?
+Cursors only exist to delivery dependency tracking
+The queries give us all the information we need
+**** So now we don't care about getting the values out with cursors
+*** Other changes
+**** Compoentns can be used without render loop
+**** Integrating custom store much simpler
+Stops saying what the store should look like.
+**** Leveraging Datomic superpowers becomes very straight forward
+***** Entity <-> UI Component
+Datomic has idea of time, so we can see all the changed datums
+*** <Live coding>
